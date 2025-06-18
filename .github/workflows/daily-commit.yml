@@ -15,7 +15,7 @@ jobs:
 
       - name: Dummy update step by 24f2002722@ds.study.iitm.ac.in
         run: |
-          echo "Daily update at $(date -u +'%Y-%m-%d %H:%M:%S')" > daily-log.txt
+          echo "Run UUID: $(uuidgen)" > daily-log.txt
 
       - name: Commit and push changes
         run: |
