@@ -2,7 +2,7 @@ name: Daily Auto Commit
 
 on:
   schedule:
-    - cron: '10 6 * * *'  # Runs daily at 06:10 UTC
+    - cron: '10 6 * * *'  # Daily at 06:10 UTC
   workflow_dispatch:
 
 jobs:
@@ -24,3 +24,4 @@ jobs:
           git add daily-log.txt
           git commit -m "Daily update [skip ci]" || echo "No changes to commit"
           git push
+
