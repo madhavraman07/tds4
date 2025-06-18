@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Dummy update step by 24f2002722@ds.study.iitm.ac.in
+      - name: Commit step by 24f2002722@ds.study.iitm.ac.in
         run: |
           echo "Run UUID: $(uuidgen)" > daily-log.txt
 
