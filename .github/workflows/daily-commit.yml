@@ -2,19 +2,20 @@ name: Daily Auto Commit
 
 on:
   schedule:
-    - cron: '10 6 * * *'
+    - cron: '10 6 * * *'  # Runs daily at 06:10 UTC
   workflow_dispatch:
 
 jobs:
   daily-commit:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Dummy update step by 24f2002722@ds.study.iitm.ac.in
         run: |
-          echo "Daily update at $(date -u)" >> daily-log.txt
+          echo "Daily update at $(date -u)" > daily-log.txt
 
       - name: Commit and push changes
         run: |
@@ -23,7 +24,3 @@ jobs:
           git add daily-log.txt
           git commit -m "Daily update [skip ci]" || echo "No changes to commit"
           git push
-echo "Daily update at $(date -u)" >> daily-log.txt
-      - name: Dummy update step by 24f2002722@ds.study.iitm.ac.in
-        run: |
-          echo "Daily update at $(date -u)" > daily-log.txt   # <-- use '>' instead of '>>'
