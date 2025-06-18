@@ -2,7 +2,7 @@ name: Daily Auto Commit
 
 on:
   schedule:
-    - cron: '10 6 * * *'  # Daily at 06:10 UTC
+    - cron: '10 6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,13 +15,12 @@ jobs:
 
       - name: Dummy update step by 24f2002722@ds.study.iitm.ac.in
         run: |
-          echo "Daily update at $(date -u)" > daily-log.txt
+          echo "Daily update at $(date -u +'%Y-%m-%d %H:%M:%S')" > daily-log.txt
 
       - name: Commit and push changes
         run: |
           git config --local user.email "24f2002722@ds.study.iitm.ac.in"
           git config --local user.name "GitHub Actions"
           git add daily-log.txt
-          git commit -m "Daily update [skip ci]" || echo "No changes to commit"
+          git commit -m "Daily update [skip ci]" || echo "Nothing to commit"
           git push
-
