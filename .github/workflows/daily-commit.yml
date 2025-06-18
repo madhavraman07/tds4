@@ -15,7 +15,7 @@ jobs:
 
       - name: Commit step by 24f2002722@ds.study.iitm.ac.in
         run: |
-          echo "Run UUID: $(uuidgen)" > daily-log.txt
+          echo "Run time: $(date +%s%N)" > daily-log.txt
 
       - name: Commit and push changes
         run: |
